@@ -4,3 +4,4 @@ _metadata/
 .vscode/
 Thumbs.db
 .env*
+.vercel

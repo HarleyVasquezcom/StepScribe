@@ -2,7 +2,7 @@
 
 **Do it once, print the steps.** StepScribe turns what you do on a page into a numbered instruction sheet: clicks become `click #selector` steps, typed values are recorded per field, and when you click an image/canvas/video a **mini capture** of the element is embedded (real `drawImage` rasterization into a tiny thumbnail). The popup lists every step with a sequence stamp; export downloads Markdown or a self-contained HTML page.
 
-Landing page: `https://stepscribe-xxxx.vercel.app` (placeholder, replaced at deploy time)
+Landing page: `https://stepscribe.vercel.app`
 Extension ZIP: `stepscribe.zip` (dist) — also downloadable from the landing.
 
 ---
