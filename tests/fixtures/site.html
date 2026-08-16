@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StepScribe fixture — how-to page</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 560px; margin: 2rem auto; line-height: 1.6; }
+  button, canvas, img, input, textarea { margin: 6px 0; }
+  canvas { border: 1px solid #333; }
+  img { border: 1px solid #333; }
+</style>
+</head>
+<body>
+  <h1>How to file an expense</h1>
+  <p>Follow this sheet to file a travel expense.</p>
+  <button id="btnA" type="button">Open the expense form</button>
+  <label>Full name <input id="name" type="text" value=""></label>
+  <label>Include receipts <input id="opt" type="checkbox"></label>
+  <label>Notes <textarea id="notes" rows="2"></textarea></label>
+  <canvas id="draw" width="160" height="100"></canvas>
+  <img id="pic" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="receipt">
+  <script>
+    (function () {
+      var c = document.getElementById('draw');
+      var ctx = c.getContext('2d');
+      ctx.fillStyle = '#1f4d3d';
+      ctx.fillRect(0, 0, 160, 100);
+      ctx.fillStyle = '#ff8c1a';
+      ctx.fillRect(10, 10, 40, 40);
+    })();
+  </script>
+</body>
+</html>

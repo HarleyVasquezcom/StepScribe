@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StepScribe — do it once, print the steps</title>
+<style>
+  :root { --sheet:#fdfdfb; --grid:#7aa2e3; --ink:#0f172a; --stamp:#ff8c1a; --line:#c7d3ea; --soft:#5b6b85; }
+  * { box-sizing: border-box; }
+  body { margin:0; background: var(--sheet); color: var(--ink); font-family:'Segoe UI', system-ui, sans-serif; line-height:1.6; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header.top {
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-color: #f4f7fd;
+    border-bottom: 3px solid var(--ink);
+  }
+  nav.wrap { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; }
+  .brand { font-weight:800; letter-spacing:1px; font-family:Consolas,'Courier New',monospace; font-size:18px; text-transform:uppercase; }
+  #langSel { border:1px solid var(--line); background: var(--sheet); color: var(--ink); padding:4px 6px; border-radius:3px; font-family:Consolas,monospace; }
+  .hero { text-align:center; padding: 58px 20px 48px; }
+  .stamprow { margin-bottom: 20px; display:flex; justify-content:center; gap:10px; }
+  .stamprow i { border:2px solid var(--stamp); color: var(--stamp); border-radius:5px; padding:4px 14px; font-style:normal; font-weight:800; transform: rotate(-2deg); box-shadow: 0 0 0 1px rgba(255,140,26,.4); font-family:Consolas,monospace; }
+  .hero h1 { font-size:42px; margin:0 0 10px; font-family:Consolas,'Courier New',monospace; text-transform:uppercase; letter-spacing:2px; }
+  .hero .sub { font-size:18px; color: var(--soft); margin:0 0 26px; }
+  .cta { display:inline-block; background: var(--ink); color:#fff; text-decoration:none; padding:12px 26px; border-radius:6px; font-weight:700; font-family:Consolas,monospace; box-shadow: 0 5px 0 #1c2c4a; }
+  .cta:hover { background:#1f3354; }
+  .features { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:18px; padding: 40px 0; }
+  .feat { background: var(--sheet); border:1px solid var(--line); border-top:4px solid var(--stamp); border-radius:5px; padding:18px; box-shadow: 3px 3px 0 rgba(15,23,42,.08); }
+  .feat h3 { margin:0 0 6px; font-family:Consolas,monospace; font-size:15px; text-transform:uppercase; letter-spacing:.5px; }
+  .feat p { margin:0; font-size:14px; color:#3d4a5f; }
+  .feat code { background:#eef1f7; border:1px solid var(--line); padding:1px 5px; border-radius:3px; font-size:12px; }
+  .install { background: var(--sheet); border:2px dashed var(--ink); border-radius:8px; padding:26px; margin:24px 0 40px; }
+  .install h2 { margin-top:0; font-family:Consolas,monospace; text-transform:uppercase; letter-spacing:1px; font-size:17px; }
+  .install ol { margin:0; padding-left:22px; }
+  .install li { margin-bottom:8px; }
+  code { background:#eef1f7; border:1px solid var(--line); padding:1px 6px; border-radius:3px; font-size:13px; }
+  footer { background: var(--ink); color:#dbe4f2; padding:18px; text-align:center; }
+  footer a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<header class="top">
+  <nav class="wrap">
+    <span class="brand" data-i18n="brand">StepScribe</span>
+    <select id="langSel" aria-label="language">
+      <option value="en">English</option><option value="es">Español</option><option value="fr">Français</option>
+      <option value="pt">Português</option><option value="it">Italiano</option><option value="de">Deutsch</option>
+    </select>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div class="stamprow"><i data-i18n="stamp1">STEP 01</i><i data-i18n="stamp2">STEP 02</i><i data-i18n="stamp3">STEP 03</i></div>
+  <h1 data-i18n="heroTitle">StepScribe</h1>
+  <p class="sub" data-i18n="heroSub">Do it once, print the steps. StepScribe watches your clicks and typed values on a page and turns them into a numbered instruction sheet with mini captures — exported as Markdown or HTML.</p>
+  <a class="cta" data-i18n="cta" href="stepscribe.zip" download>Download the extension (.zip)</a>
+</section>
+
+<main class="wrap">
+  <section class="features">
+    <div class="feat"><h3 data-i18n="feat1T">Interactions in</h3><p data-i18n="feat1B">Clicks become <code>click #button</code> steps; each field change records the target selector and the typed value. Sequence numbers stamp every step.</p></div>
+    <div class="feat"><h3 data-i18n="feat2T">Mini element captures</h3><p data-i18n="feat2B">When the clicked element is an image, canvas or video, its region is rasterized with <code>drawImage</code> into a tiny thumbnail embedded in the sheet.</p></div>
+    <div class="feat"><h3 data-i18n="feat3T">Export the sheet</h3><p data-i18n="feat3B">Download Markdown or a self-contained HTML page with the numbered instructions — thumbnails included. Nothing leaves your machine.</p></div>
+  </section>
+
+  <section class="install">
+    <h2 data-i18n="installTitle">Install (load unpacked)</h2>
+    <ol>
+      <li data-i18n="inst1">Download <code>stepscribe.zip</code> and unzip it.</li>
+      <li data-i18n="inst2">Open <code>chrome://extensions</code>, enable <em>Developer mode</em>.</li>
+      <li data-i18n="inst3">Click <em>Load unpacked</em> and select the folder.</li>
+      <li data-i18n="inst4">Open a page, start recording from the popup, work through your flow, export.</li>
+    </ol>
+  </section>
+</main>
+
+<footer><a data-i18n="credit" href="https://www.linkedin.com/in/harleyvasquez/" target="_blank" rel="noreferrer">Built by Harley Vásquez</a></footer>
+
+<script>
+(function(){
+  var LANGS=['en','es','fr','pt','it','de'];
+  var I18N={
+    en:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Do it once, print the steps. StepScribe watches your clicks and typed values on a page and turns them into a numbered instruction sheet with mini captures — exported as Markdown or HTML.',cta:'Download the extension (.zip)',stamp1:'STEP 01',stamp2:'STEP 02',stamp3:'STEP 03',feat1T:'Interactions in',feat1B:'Clicks become click #button steps; each field change records the target selector and the typed value. Sequence numbers stamp every step.',feat2T:'Mini element captures',feat2B:'When the clicked element is an image, canvas or video, its region is rasterized with drawImage into a tiny thumbnail embedded in the sheet.',feat3T:'Export the sheet',feat3B:'Download Markdown or a self-contained HTML page with the numbered instructions — thumbnails included. Nothing leaves your machine.',installTitle:'Install (load unpacked)',inst1:'Download stepscribe.zip and unzip it.',inst2:'Open chrome://extensions, enable Developer mode.',inst3:'Click Load unpacked and select the folder.',inst4:'Open a page, start recording from the popup, work through your flow, export.',credit:'Built by Harley Vásquez'},
+    es:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Hazlo una vez, imprime los pasos. StepScribe observa tus clics y valores escritos en una página y los convierte en una hoja de instrucciones numerada con mini-capturas — exportada en Markdown o HTML.',cta:'Descargar la extensión (.zip)',stamp1:'PASO 01',stamp2:'PASO 02',stamp3:'PASO 03',feat1T:'Interacciones adentro',feat1B:'Los clics se vuelven click #boton; cada cambio de campo registra el selector y el valor escrito. Números de secuencia sellan cada paso.',feat2T:'Mini-capturas de elemento',feat2B:'Cuando el elemento clicado es imagen, canvas o vídeo, su región se rasteriza con drawImage en una miniatura incrustada en la hoja.',feat3T:'Exporta la hoja',feat3B:'Descarga Markdown o una página HTML autocontenida con las instrucciones numeradas — miniaturas incluidas. Nada sale de tu equipo.',installTitle:'Instalación (load unpacked)',inst1:'Descarga stepscribe.zip y descomprímelo.',inst2:'Abre chrome://extensions y activa el modo desarrollador.',inst3:'Pulsa Cargar descomprimida y elige la carpeta.',inst4:'Abre una página, inicia la grabación desde el popup, recorre tu flujo, exporta.',credit:'Creado por Harley Vásquez'},
+    fr:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Faites-le une fois, imprimez les étapes. StepScribe observe vos clics et vos saisies sur une page et les transforme en feuille d\u2019instructions numérotée avec mini-captures — exportée en Markdown ou HTML.',cta:'Télécharger l\u2019extension (.zip)',stamp1:'ÉTAPE 01',stamp2:'ÉTAPE 02',stamp3:'ÉTAPE 03',feat1T:'Interactions saisies',feat1B:'Les clics deviennent click #bouton ; chaque changement de champ enregistre le sélecteur et la valeur tapée. Des numéros tamponnent chaque étape.',feat2T:'Mini-captures d\u2019élément',feat2B:'Quand l\u2019élément cliqué est une image, un canvas ou une vidéo, sa région est rasterisée avec drawImage en vignette intégrée à la feuille.',feat3T:'Exportez la feuille',feat3B:'Téléchargez le Markdown ou une page HTML autonome avec les instructions numérotées — vignettes incluses. Rien ne quitte votre machine.',installTitle:'Installation (load unpacked)',inst1:'Téléchargez stepscribe.zip et décompressez-le.',inst2:'Ouvrez chrome://extensions et activez le mode développeur.',inst3:'Cliquez sur Charger l\u2019extension non empaquetée et choisissez le dossier.',inst4:'Ouvrez une page, démarrez l\u2019enregistrement depuis le popup, suivez votre flux, exportez.',credit:'Créé par Harley Vásquez'},
+    pt:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Faça uma vez, imprima os passos. StepScribe observa seus cliques e valores digitados em uma página e os transforma em uma folha de instruções numerada com mini-capturas — exportada em Markdown ou HTML.',cta:'Baixar a extensão (.zip)',stamp1:'PASSO 01',stamp2:'PASSO 02',stamp3:'PASSO 03',feat1T:'Interações dentro',feat1B:'Cliques viram click #botao; cada mudança de campo registra o seletor e o valor digitado. Números de sequência carimbam cada passo.',feat2T:'Mini-capturas de elemento',feat2B:'Quando o elemento clicado é imagem, canvas ou vídeo, sua região é rasterizada com drawImage em uma miniatura embutida na folha.',feat3T:'Exporte a folha',feat3B:'Baixe Markdown ou uma página HTML autocontida com as instruções numeradas — miniaturas inclusas. Nada sai do seu computador.',installTitle:'Instalação (load unpacked)',inst1:'Baixe stepscribe.zip e descompacte.',inst2:'Abra chrome://extensions e ative o modo desenvolvedor.',inst3:'Clique em Carregar sem compactação e escolha a pasta.',inst4:'Abra uma página, inicie a gravação no popup, percorra seu fluxo, exporte.',credit:'Criado por Harley Vásquez'},
+    it:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Fallo una volta, stampa i passi. StepScribe osserva i tuoi clic e i valori digitati su una pagina e li trasforma in un foglio di istruzioni numerato con mini-catture — esportato in Markdown o HTML.',cta:'Scarica l\u2019estensione (.zip)',stamp1:'PASSO 01',stamp2:'PASSO 02',stamp3:'PASSO 03',feat1T:'Interazioni dentro',feat1B:'I clic diventano click #pulsante; ogni modifica di un campo registra il selettore e il valore digitato. Numeri di sequenza timbrano ogni passo.',feat2T:'Mini-catture di elemento',feat2B:'Quando l\u2019elemento cliccato è un\u2019immagine, un canvas o un video, la sua regione viene rasterizzata con drawImage in una miniatura incorporata nel foglio.',feat3T:'Esporta il foglio',feat3B:'Scarica Markdown o una pagina HTML autonoma con le istruzioni numerate — miniature incluse. Nulla lascia la tua macchina.',installTitle:'Installazione (load unpacked)',inst1:'Scarica stepscribe.zip ed estrailo.',inst2:'Apri chrome://extensions e attiva la modalità sviluppatore.',inst3:'Clicca Carica estensione non pacchettizzata e scegli la cartella.',inst4:'Apri una pagina, avvia la registrazione dal popup, segui il tuo flusso, esporta.',credit:'Creato da Harley Vásquez'},
+    de:{brand:'StepScribe',heroTitle:'StepScribe',heroSub:'Einmal ausführen, Schritte drucken. StepScribe beobachtet deine Klicks und Eingaben auf einer Seite und verwandelt sie in ein nummeriertes Anleitungsblatt mit Mini-Aufnahmen — exportiert als Markdown oder HTML.',cta:'Erweiterung herunterladen (.zip)',stamp1:'SCHRITT 01',stamp2:'SCHRITT 02',stamp3:'SCHRITT 03',feat1T:'Interaktionen rein',feat1B:'Klicks werden zu click #button; jede Feldänderung erfasst Selektor und eingegebenen Wert. Sequenznummern stempeln jeden Schritt.',feat2T:'Mini-Elementaufnahmen',feat2B:'Ist das geklickte Element ein Bild, Canvas oder Video, wird seine Region per drawImage in eine Miniatur gerastert und eingebettet.',feat3T:'Blatt exportieren',feat3B:'Lade Markdown oder eine eigenständige HTML-Seite mit den nummerierten Anleitungen herunter — Miniaturen inklusive. Nichts verlässt deinen Rechner.',installTitle:'Installation (load unpacked)',inst1:'Lade stepscribe.zip herunter und entpacke es.',inst2:'Öffne chrome://extensions und aktiviere den Entwicklermodus.',inst3:'Klicke Entpackte Erweiterung laden und wähle den Ordner.',inst4:'Öffne eine Seite, starte die Aufnahme im Popup, gehe den Ablauf durch, exportiere.',credit:'Erstellt von Harley Vásquez'}
+  };
+  var LS='ss:landingLang';
+  var sel=document.getElementById('langSel');
+  function detect(){ var n=(navigator.language||'en').toLowerCase().split('-')[0]; return LANGS.indexOf(n)>=0?n:'en'; }
+  function apply(lang){
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(I18N[lang][k]!==undefined) el.textContent=I18N[lang][k];
+    });
+    document.title=I18N[lang].heroTitle+' — '+I18N[lang].heroSub;
+  }
+  var lang=localStorage.getItem(LS); if(LANGS.indexOf(lang)<0) lang=detect();
+  sel.value=lang; apply(lang);
+  sel.addEventListener('change',function(){ localStorage.setItem(LS,sel.value); apply(sel.value); });
+})();
+</script>
+</body>
+</html>

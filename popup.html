@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StepScribe</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="ss-head">
+    <div class="sheet-top">
+      <span class="sheet-title" data-i18n="appTitle">StepScribe</span>
+      <span class="stamp" id="stateLed" data-i18n="statusOff">IDLE</span>
+    </div>
+    <p class="tagline" data-i18n="tagline">do it once, print the steps</p>
+    <button id="toggleBtn" type="button" data-i18n="toggle">[ start / stop recording ]</button>
+    <p class="hint" data-i18n="hint">steps are written per interaction; img/canvas targets get a mini capture</p>
+  </header>
+
+  <section class="ss-body">
+    <div class="sheet-title-row">
+      <span data-i18n="stepsTitle">recorded steps</span>
+      <span id="seqVal">0</span>
+    </div>
+    <ol id="stepList" class="steplist"></ol>
+    <p id="statusMsg" class="statusmsg" aria-live="polite"></p>
+  </section>
+
+  <footer class="ss-foot">
+    <div class="exptools">
+      <button id="exportMdBtn" type="button" data-i18n="exportMd">export .md</button>
+      <button id="exportHtmlBtn" type="button" data-i18n="exportHtml">export .html</button>
+      <button id="clearBtn" type="button" data-i18n="clearBtn">[ clear steps ]</button>
+    </div>
+    <label for="langSel" class="visually-hidden">language</label>
+    <select id="langSel">
+      <option value="en">EN</option><option value="es">ES</option><option value="fr">FR</option>
+      <option value="pt">PT</option><option value="it">IT</option><option value="de">DE</option>
+    </select>
+    <a data-i18n="credit" href="https://www.linkedin.com/in/harleyvasquez/" target="_blank" rel="noreferrer">Built by Harley Vásquez</a>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
